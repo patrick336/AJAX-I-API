@@ -1,19 +1,12 @@
 $(function () {
-
-
-
+    
     var tweetLink = "https://twitter.com/intent/tweet?text=";
     var quoteUrl = "http://api.forismatic.com/api/1.0/?method=getQuote&key=867576&format=jsonp&lang=en&jsonp=?";
-
-     getQuote();
-
+    
     function getQuote() {
        $.getJSON(quoteUrl,createTweet);
     }
 
-
-    
-    
     function createTweet(input) {
         if (!(input.quoteAuthor.length)) 
         {
@@ -30,12 +23,12 @@ $(function () {
             $('.quote').text(input.quoteText);
             $('.author').text("Author: " + input.quoteAuthor);
             $('.tweet').attr('href', tweet);
-        }
-        
+        }    
     }
     $('.trigger').click(function () {
         getQuote();
     });
-
+    
+     getQuote();
 });
     
